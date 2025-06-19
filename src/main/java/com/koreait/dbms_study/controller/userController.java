@@ -23,15 +23,17 @@ public class userController {
     public ResponseEntity<?> addUser(@RequestBody AddUserReqDto addUserReqDto) {
         return ResponseEntity.ok(userService.addUser(addUserReqDto));
     }
-//
-//    @GetMapping("/get/list")
-//    public ResponseEntity<?> {
-//    return ResponseEntity.ok(userService.getUserList());
-//    }
-//
-//    @GetMapping("/get")
-//    public ResponseEntity<?> getUserByUserId(@RequestParam Integer userId) {
-//        return ResponseEntity.ok(userService.getUserByUserId(userId));
-//    }
+
+    @GetMapping("/get/list")
+    public ResponseEntity<?> getUserList() {
+    return ResponseEntity.ok(userService.getUserList());
+    }
+
+    @GetMapping("/get")
+    public ResponseEntity<?> getUserByUserId(@RequestParam Integer userId) {
+        return ResponseEntity.ok(userService.getUserByUserId(userId));
+    }
+//    http://localhost:8080/user/get?userId=1
+//    {"user":{"userid":1,"username":"이슬기","email":"test@example.com","createdt":"2025-06-18T21:17:43","updatedt":"2025-06-18T21:17:43"}}
 }
-//
+

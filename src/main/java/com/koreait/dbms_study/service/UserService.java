@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -29,15 +30,19 @@ public class UserService {
         response.put("message","추가 실패");
         return response;
     }
-//
-//    public List<User> getUserList(){
-//        return userRepository.getUserList();
-//    }
-//
-//    public Map<String, Object> getUserByUserId() {
-//        User user = userRepository.getUserByUserId(userId);
-//        if (user.isEmpty()) {
-//            response.put("")
-//        }
-//    }
+
+    public List<User> getUserList(){
+        return userRepository.getUserList();
+    }
+
+    public Map<String, Object> getUserByUserId(Integer userId) {
+        Map<String, Object> response = new HashMap<>();
+        Optional<User> user = userRepository.getUserByUserId(userId);
+        if (user.isEmpty()) {
+            response.put("message", "회원정보가 없습니다.");
+            return response;
+        }
+        response.put("user",user);
+        return response;
+    }
 }

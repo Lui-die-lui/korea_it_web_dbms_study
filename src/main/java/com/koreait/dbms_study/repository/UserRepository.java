@@ -23,7 +23,7 @@ public class UserRepository {
         return userMapper.getUserList();
     }
 
-//    public Optional<User> getUserByUserId() {
-//        return userMapper.getUserByUserId(userId);
-//    }
+    public Optional<User> getUserByUserId(Integer userId) {
+        return userMapper.getUserByUserId(userId);
+    }
 }
