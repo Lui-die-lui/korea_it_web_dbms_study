@@ -2,6 +2,7 @@ package com.koreait.dbms_study.controller;
 
 
 import com.koreait.dbms_study.dto.AddUserReqDto;
+import com.koreait.dbms_study.dto.EditUserReqDto;
 import com.koreait.dbms_study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,5 +36,22 @@ public class userController {
     }
 //    http://localhost:8080/user/get?userId=1
 //    {"user":{"userid":1,"username":"이슬기","email":"test@example.com","createdt":"2025-06-18T21:17:43","updatedt":"2025-06-18T21:17:43"}}
+
+   // 요청 메소드 중  DELETE< PUT 이 있는데 POST로
+   // 보안상 이유(방화벽이 막아버릴 가능성 있음), 호환성 이유
+   // 일부 브라우저, 서버가 PUT, DELETE를 완벽히 지원하지 않음
+    // HTML <form> 가 GET, POST만 지원
+    // - 조회 빼고 다 POST라고 생각하면 됨
+
+    @PostMapping("/edit")
+    public ResponseEntity<?> editUser(@RequestBody EditUserReqDto editUserReqDto) {
+        return ResponseEntity.ok(userService.editUser(editUserReqDto));
+    }
+
+    @PostMapping("/remove") // body, param쓸 수 있음 but get에서는 param만 가능
+    public ResponseEntity<?> removeUser(@RequestParam Integer userId) {
+        return ResponseEntity.ok(userService.removeUser(userId));
+    //localhost:8080/user/remove?userId=2
+    }
 }
 

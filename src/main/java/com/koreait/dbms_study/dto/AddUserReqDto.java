@@ -10,10 +10,19 @@ public class AddUserReqDto {
     private String username;
     private String email;
 
-    public User toEntity(AddUserReqDto addUserReqDto) {
-        return User.builder()
-                .username(addUserReqDto.username)
-                .email(addUserReqDto.email)
-                .build();
+//    public User toEntity(AddUserReqDto addUserReqDto) {
+//        return User.builder()
+//                .username(addUserReqDto.username)
+//                .email(addUserReqDto.email)
+//                .build();
+
+
+        public User toEntity() {
+            return User.builder()
+                    .username(this.username)
+                    .email(this.email)
+                    .build();
+
+
     }
 }
