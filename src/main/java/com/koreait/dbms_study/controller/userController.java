@@ -30,12 +30,29 @@ public class userController {
     return ResponseEntity.ok(userService.getUserList());
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<?> getUserByUserId(@RequestParam Integer userId) {
-        return ResponseEntity.ok(userService.getUserByUserId(userId));
-    }
+//    @GetMapping("/get")
+//    public ResponseEntity<?> getUserByUserId(@RequestParam Integer userId) {
+//        return ResponseEntity.ok(userService.getUserByUserId(userId));
+//    }
 //    http://localhost:8080/user/get?userId=1
 //    {"user":{"userid":1,"username":"이슬기","email":"test@example.com","createdt":"2025-06-18T21:17:43","updatedt":"2025-06-18T21:17:43"}}
+
+    @GetMapping("/get/{userId}")
+    public ResponseEntity<?> getUserByUserId(@PathVariable Integer userId) {
+        return ResponseEntity.ok(userService.getUserByUserId(userId));
+    }
+//    localhost:8080/user/get/1
+//{
+//    "user": {
+//    "userId": 1,
+//            "username": "이슬기",
+//            "email": "test@example.com",
+//            "createdt": "2025-06-18T21:17:43",
+//            "updatedt": "2025-06-18T21:17:43"
+//}
+//}
+
+
 
    // 요청 메소드 중  DELETE< PUT 이 있는데 POST로
    // 보안상 이유(방화벽이 막아버릴 가능성 있음), 호환성 이유
