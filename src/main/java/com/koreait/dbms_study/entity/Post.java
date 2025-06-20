@@ -1,6 +1,5 @@
 package com.koreait.dbms_study.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +16,5 @@ public class Post {
     private Integer userId;
     private LocalDateTime createdt;
     private LocalDateTime updatedt;
-
 
 }

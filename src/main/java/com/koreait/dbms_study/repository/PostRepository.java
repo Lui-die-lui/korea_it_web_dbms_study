@@ -12,26 +12,38 @@ import java.util.Optional;
 public class PostRepository {
 
     @Autowired
-    private PostMapper postMapper;
+    public PostMapper postMapper;
 
     public int addPost(Post post) {
-        return postMapper.insert(post);
+        int result = postMapper.addPost(post);
+        return result;
+//        return postMapper.addPost(post);
     }
 
     public List<Post> getPostList() {
         return postMapper.getPostList();
     }
+// 위와 동일
+ //    public List<Post> getPostList() {
+//        List<Post> postList =postMapper.getPostList();
+//        return postList;
+//    }
+
 
     public Optional<Post> getPostByPostId(Integer postId) {
         return postMapper.getPostByPostId(postId);
     }
 
-    public int editPost(Post post) {
+    public int editPost(Post post) { // (포스트 객체)
         return postMapper.editPost(post);
     }
 
     public int removePost(Integer postId) {
         return postMapper.removePost(postId);
     }
+
+//    public Optional<Post> getPostByUserId(Integer userId) {
+//        return postMapper.getPostByUserId(userId);
+//    }
 
 }

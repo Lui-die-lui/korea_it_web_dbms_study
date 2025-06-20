@@ -2,24 +2,22 @@ package com.koreait.dbms_study.dto;
 
 
 import com.koreait.dbms_study.entity.Post;
+import com.koreait.dbms_study.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
-public class AditPostReqDto {
-    private Integer userId;
+public class EditPostReqDto {
+    private Integer postId;
     private String title;
     private String content;
 
     public Post toEntity() {
         return Post.builder()
-                .userId(this.userId)
+                .postId(this.postId)
                 .title(this.title)
                 .content(this.content)
                 .build();
     }
-
 }
