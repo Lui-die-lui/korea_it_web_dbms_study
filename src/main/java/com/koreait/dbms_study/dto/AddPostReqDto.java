@@ -1,5 +1,6 @@
 package com.koreait.dbms_study.dto;
 
+import com.koreait.dbms_study.entity.JpaPost;
 import com.koreait.dbms_study.entity.Post;
 import com.koreait.dbms_study.entity.Post;
 import lombok.AllArgsConstructor;
@@ -19,4 +20,7 @@ public class AddPostReqDto {
                 .content(this.content)
                 .build();
     }
+//    public JpaPost addPost(AddPostReqDto addPostReqDto) {
+//        return postJpaRepository.save(addPostReqDto.toJpaEntity());
+//    }
 }
