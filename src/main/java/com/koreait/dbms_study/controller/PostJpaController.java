@@ -22,11 +22,23 @@ public class PostJpaController {
     @Autowired
     private PostJpaService postJpaService;
 
+    @PostMapping("/add")
+    public ResponseEntity<?> addPost(@RequestBody AddPostReqDto addPostReqDto) {
+        return ResponseEntity.ok(postJpaService.addPost(addPostReqDto));
+    }
 
-//    @PostMapping("/add")
-//    public ResponseEntity<?> addPost(@RequestBody AddPostJpaRequestDto addPostJpaRequestDto) {
-//        return ResponseEntity.ok(postJpaService.addPost());
-//    } - 나중에 보기
+    @GetMapping("/get/list")
+    public ResponseEntity<?> getPostList() {
+        return ResponseEntity.ok(postJpaService.getPostList());
+    }
 
-//    @GetMapping("/get/list") -- 나중에 보기
+//    @GetMapping("/edit")
+//    public ResponseEntity<?> editPost() {
+////        return ResponseEntity.ok(postJpaService.editPost());
+//    }
+
+//    @PostMapping("/remove")
+//    public ResponseEntity<?> rmovePost(@RequestParam Integer postId) {
+//        return ResponseEntity.ok(postJpaService.removePost(postId));
+//    }
 }

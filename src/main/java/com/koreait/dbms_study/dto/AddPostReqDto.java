@@ -6,21 +6,30 @@ import com.koreait.dbms_study.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
+
 @Data
 @AllArgsConstructor
 public class AddPostReqDto {
-    private Integer userId;
     private String title;
     private String content;
+    private Integer userId;
 
     public Post toEntity() {
         return Post.builder()
-                .userId(this.userId)
                 .title(this.title)
                 .content(this.content)
+                .userId(this.userId)
                 .build();
     }
-//    public JpaPost addPost(AddPostReqDto addPostReqDto) {
-//        return postJpaRepository.save(addPostReqDto.toJpaEntity());
-//    }
+
+    public JpaPost toJpaEntity() {
+        return JpaPost.builder()
+                .title(this.title)
+                .content(this.content)
+                .userId(this.userId)
+                .createdt(LocalDateTime.now())
+                .build();
+    }
 }

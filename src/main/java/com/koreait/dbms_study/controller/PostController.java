@@ -40,10 +40,10 @@ public class PostController {
         return ResponseEntity.ok(postService.editPost(editPostReqDto));
     }
 
-    @PostMapping("/remove")
-    public ResponseEntity<?> rmovePost(@RequestParam Integer postId) {
-        return ResponseEntity.ok(postService.removePost(postId));
-    }
+//    @PostMapping("/remove")
+//    public ResponseEntity<?> rmovePost(@RequestParam Integer postId) {
+//        return ResponseEntity.ok(postService.removePost(EditPostReqDto));
+//    }
 
 //    @GetMapping("/get/{userId}")
 //    public ResponseEntity<?> getPostByUserId(@PathVariable Integer userId) {
